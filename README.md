@@ -31,25 +31,24 @@ AgroCast/
 ## 🔄 Workflow
 
 ### 1. NDVI Extraction
-- Download NDVI GeoTIFF using Google Earth Engine
-- Use `rasterio` + `geopandas` to mask NDVI by district shapes
-- Save average NDVI per district to CSV
+- Downloaded NDVI GeoTIFF using Google Earth Engine
+- Used `rasterio` + `geopandas` to mask NDVI by district shapes
+- Saved average NDVI per district to CSV
 
 ### 2. Merge Datasets
-- Combine NDVI, crop yield, temperature, and production into one dataset
-- Compute `Yield = Production / Area` if not present
+- Combined NDVI, crop yield, temperature, and production into one dataset
+- Computed `Yield = Production / Area` if not present
 
 ### 3. Model Training
 - Train an `XGBoostRegressor` to predict yield
-- Evaluate using RMSE and R² Score
+- Evaluated using RMSE and R² Score
 
 ### 4. Alert Generation
 - Trigger alert if `Yield_Predicted < mean - 0.5 * std_dev`
-- Add `Alert` column to output CSV
+- `Alert` column added to output CSV
 
 ### 5. Visualization
-- Load final dataset into Power BI
-- Add:
+- Loaded final dataset into Power BI
   - KPI cards (Avg Yield, NDVI, Alerts)
   - Line chart (Yield over Years)
   - Filled map (District Alert Zones)
